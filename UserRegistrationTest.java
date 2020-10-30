@@ -4,37 +4,33 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class UserRegistrationTest {
+
 	@Test
-	void FirstNameTest() {
+	void FirstNameTest() throws PatternMismatchException {
+		InputData.FirstName();
 		ValidateData.FirstName();
-		assertEquals("valid", "valid");
+		assertEquals(true, true);
 	}
 
 	@Test
-	void LastNameTest() {
+	void LastNameTest() throws PatternMismatchException {
+		InputData.LastName();
 		ValidateData.LastName();
-		assertEquals("valid", "valid");
+		assertEquals(true, true);
 	}
 
 	@Test
-	void UserEmailTest() {
+	void UserEmailTest() throws PatternMismatchException {
 		InputData.UserEmail();
 		ValidateData.UserEmail();
-		assertEquals("valid", "valid");
+		assertEquals(true, true);
 	}
 
 	@Test
-	void UserMobileTest() {
+	void UserMobileTest() throws PatternMismatchException {
 		InputData.UserMobile();
 		ValidateData.UserMobile();
-		assertEquals("valid", "valid");
-	}
-
-	@Test
-	void UserPasswordTest() {
-		InputData.UserPassword();
-		ValidateData.UserPassword();
-		assertEquals("valid", "valid");
+		assertEquals(true, true);
 	}
 
 }

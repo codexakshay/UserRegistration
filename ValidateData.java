@@ -4,55 +4,49 @@ import java.util.regex.Pattern;
 
 public class ValidateData {
 
-	public static String result = "";
-
-	static void FirstName() {
-		String regEx = "^[A-Z]+[a-z]{2,9}$";
-		if (Pattern.matches(regEx, InputData.firstName)) {
-			result = "valid";
+	static boolean FirstName() throws PatternMismatchException {
+		VariableStorage.regEx = "^[A-Z]+[a-z]{2,9}$";
+		if (Pattern.matches(VariableStorage.regEx, VariableStorage.firstName)) {
+			return true;
 		} else {
-			result = "invalid";
+			throw new PatternMismatchException("Invalid Input");
 		}
-		System.out.println(result);
 	}
 
-	static void LastName() {
-		String regEx = "^[A-Z]+[a-z]{2,9}$";
-		if (Pattern.matches(regEx, InputData.lastName)) {
-			result = "valid";
+	static boolean LastName() throws PatternMismatchException {
+		VariableStorage.regEx = "^[A-Z]+[a-z]{2,9}$";
+		if (Pattern.matches(VariableStorage.regEx, VariableStorage.lastName)) {
+			return true;
 		} else {
-			result = "invalid";
+			throw new PatternMismatchException("Invalid Input");
 		}
-		System.out.println(result);
 	}
 
-	static void UserEmail() {
-		String regEx = "^[a-z]+[0-9]*([-_+.][0-9a-z]+)*@[0-9a-z]+[.][a-z]{2,4}([.][a-z]{2,3})*$";
-		if (Pattern.matches(regEx, InputData.userEmail)) {
-			result = "valid";
+	static boolean UserEmail() throws PatternMismatchException {
+		VariableStorage.regEx = "^[a-z]+[0-9]*([-_+.][0-9a-z]+)*@[0-9a-z]+[.][a-z]{2,4}([.][a-z]{2,3})*$";
+		if (Pattern.matches(VariableStorage.regEx, VariableStorage.userEmail)) {
+			return true;
 		} else {
-			result = "invalid";
+			throw new PatternMismatchException("Invalid Input");
 		}
-		System.out.println(result);
 	}
 
-	static void UserMobile() {
-		String regEx = "^[0-9]{10}$";
-		if (Pattern.matches(regEx, InputData.userMobile)) {
-			result = "valid";
+	static boolean UserMobile() throws PatternMismatchException {
+		VariableStorage.regEx = "^[0-9]{10}$";
+		if (Pattern.matches(VariableStorage.regEx, VariableStorage.userMobile)) {
+			return true;
 		} else {
-			result = "invalid";
+			throw new PatternMismatchException("Invalid Input");
 		}
-		System.out.println(result);
+
 	}
 
-	static void UserPassword() {
-		String regEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
-		if (Pattern.matches(regEx, InputData.userPassword)) {
-			result = "valid";
+	static boolean UserPassword() throws PatternMismatchException {
+		VariableStorage.regEx = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
+		if (Pattern.matches(VariableStorage.regEx, VariableStorage.userPassword)) {
+			return true;
 		} else {
-			result = "invalid";
+			throw new PatternMismatchException("Invalid Input");
 		}
-		System.out.println(result);
 	}
 }

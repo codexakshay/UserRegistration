@@ -1,35 +1,23 @@
 package com.bridgelabz.code;
 
 @FunctionalInterface
-interface UserInterface
-{
-	public void OperationsFlow();
+interface Greetings {
+	public void Welcome();
 }
 
 public class UserRegistration {
 
-	public void OperationsFlow(){
-		InputData.FirstName();
-		ValidateData.FirstName();
-		InputData.LastName();
-		ValidateData.LastName();
-		InputData.UserEmail();
-		ValidateData.UserEmail();
-		InputData.UserMobile();
-		ValidateData.UserMobile();
-		InputData.UserPassword();
-		ValidateData.UserPassword();
-	}
-	
-	public static void main(String[] args){
-		UserRegistration useR = new UserRegistration();
-		UserInterface userI = () -> {
-			try {
-				useR.OperationsFlow();
-			} catch (Exception e) {
-				System.out.print(""+e.getMessage());
-			}
+	public static void main(String[] args) {
+		String Message = "*Welcome to user Registration*";
+		Greetings welcome = () -> {
+			System.out.println("" + Message);
 		};
-		userI.OperationsFlow();
+		welcome.Welcome();
+		OperationsFlow operation = new OperationsFlow();
+		try {
+			operation.MethodCall();
+		} catch (PatternMismatchException e) {
+			System.out.println("" + e.getMessage());
+		}
 	}
 }
